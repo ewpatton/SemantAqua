@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="SemantAqua" basedir="." default="package">
+  <property name="src.dir" value="src"/>
+  <property name="jsdoc.dir" value="jsdoc"/>
+  <property name="jsdoc.template" value="src/jsdoc"/>
+  <property name="www.dir" value="${src.dir}/www"/>
+
+  <target name="docs" description="Prepare documentation">
+    <!-- jsrun.sh -d=jsdoc -p -a src/www/ -t=$JSDOCDIR/templates/jsdoc -E="jQuery" -->
+    <exec executable="jsrun">
+      <arg value="-d=${jsdoc.dir}"/>
+      <arg value="-p"/>
+      <arg value="-a"/>
+      <arg value="${www.dir}"/>
+      <arg value="-t=${jsdoc.template}"/>
+      <arg value="-E=jQuery"/>
+    </exec>
+  </target>
+
+  <target name="package" description="Package SemantAqua for deployment"
+	  depends="docs">
+  </target>
+</project>
