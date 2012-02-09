@@ -6,6 +6,7 @@ import java.util.*;
 
 import com.csvreader.*;
 
+@Deprecated
 public class EpaCSVAgent {
 	int idCount = 0;
 	int consIdCount = 0;
@@ -213,25 +214,6 @@ public class EpaCSVAgent {
 			reader.close();
 		}
 
-	}
-
-	/**
-	 * @param args
-	 * @throws FileNotFoundException 
-	 */
-	public static void main(String[] args) throws FileNotFoundException {
-		EpaCSVAgent csvAgent = new EpaCSVAgent();
-		EpaUtil epaUtil = new EpaUtil();
-		HashMap<String, MeasurementConstraint> testConstraints = new HashMap<String, MeasurementConstraint>();
-		
-		Facility fac1 = new Facility("100000000001");
-		//"home/ping/research/python/water/csv/128967058817850.csv
-		String fileName = "/home/ping/research/python/water/CgiSoupOutput/02809/CSV/110009444869.csv";
-		//csvAgent.CSVRead(fileName, fac1, testConstraints);
-		
-		//epaUtil.printMeasurementConstraintArrayList(fac1.coliformConstraints, "/home/ping/research/python/water/csv/coliformConstraints");
-		//epaUtil.printFacilityMeasurmentArrayList(fac1.coliformMeasurements, "/home/ping/research/python/water/csv/coliformMeasurements");
-		
 	}
 
 }

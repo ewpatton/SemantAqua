@@ -13,7 +13,6 @@ import com.hp.hpl.jena.ontology.OntProperty;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.Resource;
-import com.hp.hpl.jena.vocabulary.RDF;
 
 import edu.rpi.tw.eScience.SemantAqua.model.Ontology;
 
@@ -165,15 +164,17 @@ public class FacilityMeasurement {
 	}
 	
 	public Individual asIndividual(OntModel owlModel, Model pmlModel) {
-		int col = valueCol(testNumber);
 		SimpleDateFormat srcFormat = new SimpleDateFormat("yyyyMMddHHmmss");
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
 		Individual m = owlModel.createIndividual(Ontology.EPA.NS+"epa-measure-"+id, Ontology.FacilityMeasurement(owlModel));
 		//m.addProperty(RDF.type, owlModel.createClass(Ontology.EPA.NS+"EPA-"+elementName+"-test-"+testNumber));
 		OntProperty prop;
 		
+		/*
+		int col = valueCol(testNumber);
 		Resource info;
 		Property hasUsage = pmlModel.createProperty(Ontology.PMLP.hasReferenceSourceUsage);
+		*/
 		
 		// Time
 		Date theDate=null;

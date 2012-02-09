@@ -10,10 +10,10 @@ import com.hp.hpl.jena.ontology.OntProperty;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.Resource;
-import com.hp.hpl.jena.vocabulary.RDF;
 
 import edu.rpi.tw.eScience.SemantAqua.model.Ontology;
 
+@Deprecated
 public class MeasurementSite {
 	double lat,longitude;
 	String loc_id;
@@ -113,11 +113,13 @@ public class MeasurementSite {
 		String uri = Ontology.EPA.NS+"site-"+loc_id;
 		OntClass MeasurementSite = Ontology.MeasurementSite(owlModel);
 		Individual site = owlModel.createIndividual(uri, MeasurementSite);
-		Resource pmlsite = pmlModel.createResource(uri);
 		site.addOntClass(Ontology.Point(owlModel));
 		
+		/*
+		Resource pmlsite = pmlModel.createResource(uri);
 		Resource info;
 		Property hasUsage = pmlModel.createProperty(Ontology.PMLP.hasReferenceSourceUsage);
+		*/
 
 		// Country code
 		OntProperty prop = Ontology.hasCountryCode(owlModel);

@@ -3,6 +3,7 @@ package edu.rpi.tw.eScience.SemantAqua.regulations;
 import java.io.*;
 import java.util.Vector;
 
+@Deprecated
 public class Regulation {
 
 	private Vector <String> regulations;

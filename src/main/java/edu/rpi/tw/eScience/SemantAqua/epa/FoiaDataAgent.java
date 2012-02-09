@@ -9,6 +9,7 @@ import java.util.*;
 
 import com.csvreader.*;
 
+@Deprecated
 public class FoiaDataAgent {
 	
 	HashMap<String, String> unitCode2ShortName;
@@ -21,6 +22,7 @@ public class FoiaDataAgent {
 		
 	}
 	
+	@Override
 	public String toString(){
 		StringBuffer sbuf = new StringBuffer();
 		sbuf.append("unitCode2ShortName\n");
@@ -78,21 +80,14 @@ public class FoiaDataAgent {
 	
 	public void CSVRead(String inputfileName, String postContent, Facility curFac, HashMap<String, MeasurementConstraint> constraintsMap){		
 		CsvReader reader = null;
-		int recordNum = 0;
-		String curUnitCode = null;
 	
 		try {			
 			reader = new CsvReader(inputfileName);		
 
 			reader.readHeaders();
-			recordNum++;
 
 			while (reader.readRecord())
 			{			
-				recordNum++;
-				curUnitCode = reader.get("UNIT_CODE");				
-				//System.out.println("Record " + recordNum + ": "+elementName);
-				//find the next element
 
 			}//end of while
 	

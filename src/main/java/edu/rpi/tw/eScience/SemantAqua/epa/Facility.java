@@ -11,7 +11,6 @@ import com.hp.hpl.jena.ontology.OntProperty;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.Resource;
-import com.hp.hpl.jena.vocabulary.RDF;
 
 import edu.rpi.tw.eScience.SemantAqua.model.Ontology;
 
@@ -255,8 +254,8 @@ public class Facility {
 		Individual facility = owlModel.createIndividual(uri, Facility);
 		facility.addOntClass(Ontology.Point(owlModel));
 		
-		Resource info;
-		Property hasUsage = pmlModel.createProperty(Ontology.PMLP.hasReferenceSourceUsage);
+		//Resource info;
+		//Property hasUsage = pmlModel.createProperty(Ontology.PMLP.hasReferenceSourceUsage);
 		OntProperty prop;
 
 		// ID

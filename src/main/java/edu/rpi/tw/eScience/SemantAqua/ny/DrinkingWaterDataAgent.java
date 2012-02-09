@@ -8,6 +8,7 @@ import java.util.HashMap;
 
 import com.csvreader.CsvReader;
 
+@Deprecated
 public class DrinkingWaterDataAgent {
 
 	/*public class Range {
@@ -26,6 +27,7 @@ public class DrinkingWaterDataAgent {
 //NitrateMaxRange	NitrateMaxConc	NitrateMeanRange	NitrateMeanConc	
 //TTHMMaxRange	TTHMMaxConc	TTHMMeanRange	TTHMMeanConc
 	
+	@SuppressWarnings("unused")
 	private void convertRangeName(String rangeName, StringBuilder sb){
 		int index=-1;
 		String pre="";
@@ -112,7 +114,6 @@ public class DrinkingWaterDataAgent {
 
 	public void getPWS(String inputfileName, BufferedWriter bufferedWriter){
 			CsvReader reader = null;
-			int recordNum = 0;
 			String principalcounty, PWSIDNumber, PWSName, systemPopulation;
 			HashMap<String, String> pwsIDMap = new HashMap<String, String> ();
 
@@ -126,13 +127,9 @@ public class DrinkingWaterDataAgent {
 					bufferedWriter.write(headers[i]+",");
 				bufferedWriter.write(headers[i]);
 				bufferedWriter.write("\n");
-				recordNum++;
 
 				while (reader.readRecord())
 				{			
-					recordNum++;
-					//System.out.println("Record " + recordNum);
-
 					principalcounty=reader.get("principalcounty");	
 					PWSIDNumber=reader.get("PWSIDNumber");	
 					PWSName=reader.get("PWS_name");
@@ -162,7 +159,6 @@ public class DrinkingWaterDataAgent {
 	
 	public void getRegulations(String inputfileName, BufferedWriter bufferedWriter){
 		CsvReader reader = null;
-		int recordNum = 0;
 		HashMap<String, String> regulationsMap = new HashMap<String, String> ();
 		String curRange;
 		//StringBuilder sb = new StringBuilder();
@@ -175,12 +171,9 @@ public class DrinkingWaterDataAgent {
 			//String[] headers=reader.getHeaders();
 			bufferedWriter.write("Contaminant, County, Year, LowerComparator, LowerBound, UpperComparator, UpperBound");
 			bufferedWriter.write("\n");
-			recordNum++;
 
 			while (reader.readRecord())
 			{			
-				recordNum++;
-				//System.out.println("Record " + recordNum);
 				county=reader.get("principalcounty");
 				year=reader.get("Year");
 				for(int j=0;j<rangeNames.length;j++){
@@ -214,7 +207,6 @@ public class DrinkingWaterDataAgent {
 
 	public void getConc(String inputfileName, BufferedWriter bufferedWriter){		
 		CsvReader reader = null;
-		int recordNum = 0;
 		String pwsId, year, curConc;
 		StringBuilder sb = new StringBuilder();
 
@@ -225,14 +217,9 @@ public class DrinkingWaterDataAgent {
 			//String[] headers=reader.getHeaders();
 			bufferedWriter.write("PWSIDNumber, Contaminant, Concentration, StatType, Year");
 			bufferedWriter.write("\n");
-			recordNum++;
 
 			while (reader.readRecord())
 			{			
-				recordNum++;
-				//System.out.println("Record " + recordNum);
-				//System.out.println(reader.getRawRecord());
-				//bufferedWriter.write(reader.getRawRecord()+'\n');
 				pwsId=reader.get("PWSIDNumber");
 				year=reader.get("Year");
 
@@ -279,7 +266,7 @@ public class DrinkingWaterDataAgent {
 		String wsFile = dir+"/test/proc_water_system.csv";		
 		agent.process(inputFile, wsFile, 0);
 		
-		String regFile = dir+"/test/proc_ny_health_reg.csv";		
+		//String regFile = dir+"/test/proc_ny_health_reg.csv";		
 		//agent.process(inputFile, regFile, 1);
 		
 		String concFile = dir+"/test/proc_drinking_water.csv";		

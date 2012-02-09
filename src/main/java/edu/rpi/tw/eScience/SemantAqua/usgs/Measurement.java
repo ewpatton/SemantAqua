@@ -9,10 +9,10 @@ import com.hp.hpl.jena.ontology.OntProperty;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.Resource;
-import com.hp.hpl.jena.vocabulary.RDF;
 
 import edu.rpi.tw.eScience.SemantAqua.model.Ontology;
 
+@Deprecated
 public class Measurement {
 	String ID;
 	int id2;
@@ -37,7 +37,6 @@ public class Measurement {
 		return result;
 	}
 	
-	@SuppressWarnings("deprecation")
 	public Measurement(String identification, int id2, Date Startdate, String StartTime, String chemicalname, double value_measurement, String unit_measurement) {
     	this.ID = identification; 
     	this.id2 = id2;
@@ -101,11 +100,13 @@ public class Measurement {
 	public Individual asIndividual(OntModel owlModel, Model pmlModel) {
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
 		Individual m = owlModel.createIndividual(Ontology.EPA.NS+"usgs-measure-"+id2, Ontology.WaterMeasurement(owlModel));
-		Resource pmlm = pmlModel.createResource(m.getURI());
 		OntProperty prop;
 		
+		/*
+		Resource pmlm = pmlModel.createResource(m.getURI());
 		Resource info;
 		Property hasUsage = pmlModel.createProperty(Ontology.PMLP.hasReferenceSourceUsage);
+		*/
 		
 		// Time
 		prop = Ontology.inXSDDateTime(owlModel);

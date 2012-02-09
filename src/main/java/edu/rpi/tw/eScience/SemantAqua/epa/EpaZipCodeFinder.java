@@ -1,29 +1,20 @@
 package edu.rpi.tw.eScience.SemantAqua.epa;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.HashMap;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import com.csvreader.CsvReader;
-
-import edu.rpi.tw.eScience.SemantAqua.zip.ZipCodeLookup.ServerFailedToRespondException;
 
 /*read csv, if missing zip code
   1st, if the record has valid lat and long, use this to get zip code
   2nd if the record has street address and state, use this to lookup zip code
 */
+@Deprecated
 public class EpaZipCodeFinder {
 	
+	@SuppressWarnings("unused")
 	public void processCSVFile(String inputFileName, String ouputFileName){
 		CsvReader reader = null;
 		BufferedWriter out = null;
@@ -77,6 +68,7 @@ public class EpaZipCodeFinder {
 		
 	}
 	
+	@SuppressWarnings("unused")
 	private boolean hasLatLong(String latitude, String longitude){
 		if(latitude.compareTo("")!=0 && longitude.compareTo("")!=0){
 			return (Double.parseDouble(latitude)!=0 || Double.parseDouble(longitude)!=0);

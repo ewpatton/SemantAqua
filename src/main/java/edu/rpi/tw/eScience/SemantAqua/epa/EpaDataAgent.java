@@ -14,6 +14,7 @@ import com.hp.hpl.jena.vocabulary.RDFS;
 import edu.rpi.tw.eScience.SemantAqua.data.WaterDataProvider;
 import edu.rpi.tw.eScience.SemantAqua.model.Ontology;
 
+@Deprecated
 public class EpaDataAgent implements WaterDataProvider {
 	static int BUFFER_SIZE = 4096;
 	//You can change the up most directory
@@ -277,8 +278,6 @@ public class EpaDataAgent implements WaterDataProvider {
 					}	
 					curFac.setQtrDurList(qtrDurList);
 				}//end of if
-				if(curLine == null)
-					break;
 				if(curLine.compareTo("NC Boolean List")==0){
 					NCBoolList = new ArrayList<String>(numQtr);
 					for(int i=0;i<numQtr;i++){

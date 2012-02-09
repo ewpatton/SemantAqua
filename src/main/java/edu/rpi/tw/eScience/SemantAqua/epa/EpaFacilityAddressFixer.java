@@ -1,21 +1,17 @@
 package edu.rpi.tw.eScience.SemantAqua.epa;
 
 import java.io.*;
-import java.util.*;
 import java.net.URL;
 import java.net.URLConnection;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
-
-import edu.rpi.tw.eScience.SemantAqua.zip.ZipCodeLookup.ServerFailedToRespondException;
-
 /*read csv, if missing zip code
   1st, if the record has valid lat and long, use this to get zip code
   2nd if the record has street address and state, use this to lookup zip code
  */
+@Deprecated
 public class EpaFacilityAddressFixer {
 	public static boolean DEBUG = false;
 	//static String geoTargetPre = "http://maps.googleapis.com/maps/api/geocode/json?address=";
@@ -442,16 +438,16 @@ public class EpaFacilityAddressFixer {
 		String state="RI", stateCode="44";
 		EpaFacilityAddressFixer fixer = new EpaFacilityAddressFixer(state, stateCode);
 		//missing lat, lng
-		String facData1="RIG250001|110004908529|INTERNATIONAL MFG. SVCS., INC.|50 SCHOOLHOUSE LANE|PORTSMOUTH|RI005|RI|02871|0.000000|0.000000||";
+		//String facData1="RIG250001|110004908529|INTERNATIONAL MFG. SVCS., INC.|50 SCHOOLHOUSE LANE|PORTSMOUTH|RI005|RI|02871|0.000000|0.000000||";
 		//missing lat, lng and zip
-		String facData2="RIR100252|110009700751|SEVENTEEN FARMS|MAJOR POTTER ROAD|WARWICK|RI009|RI||0.000000|0.000000||";
+		//String facData2="RIR100252|110009700751|SEVENTEEN FARMS|MAJOR POTTER ROAD|WARWICK|RI009|RI||0.000000|0.000000||";
 		//missing st address, lat and lng
-		String facData3="RIR100340|110010955029|WARWICK MALL|UNKNOWN|WARWICK|RI003|RI|02886|0.000000|0.000000||";
+		//String facData3="RIR100340|110010955029|WARWICK MALL|UNKNOWN|WARWICK|RI003|RI|02886|0.000000|0.000000||";
 		//missing everything
-		String facData4="RIG250000||||||||0.000000|0.000000||";
+		//String facData4="RIG250000||||||||0.000000|0.000000||";
 		//------------------------Reverse Geocoding
 		//missing ctyCode
-		String facData5="RIR5AA004|110032604901|BARKER STEEL COMPANY, INC.|30 LOCKBRIDGE STREET|PAWTUCKET||RI|02860|41.879166|-71.408325||";
+		//String facData5="RIR5AA004|110032604901|BARKER STEEL COMPANY, INC.|30 LOCKBRIDGE STREET|PAWTUCKET||RI|02860|41.879166|-71.408325||";
 	
 		String inputFile = "/home/ping/Downloads/epa/fixer/RI/RI-ICP01.TXT";//RI-ICP01.TXT//ri-test.txt
 		fixer.fixFile(inputFile);
