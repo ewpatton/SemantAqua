@@ -30,7 +30,6 @@ public class Test implements WaterDataProvider {
 		return new ArrayList<Measurement>();
 	}
 	
-	@Override
 	public boolean getData(OntModel owlModel, Model pmlModel) {
 		owlModel.read("src/rdf/cleanwater.owl");
 		Resource FacilityClass = owlModel.getResource(ns+"Facility");
@@ -43,26 +42,22 @@ public class Test implements WaterDataProvider {
 		return true;
 	}
 
-	@Override
 	public boolean getData(OntModel owlModel, Model pmlModel, 
 			Date start, Date end) {
 		// TODO Auto-generated method stub
 		return true;
 	}
 
-	@Override
 	public String getName() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public URL getURL() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public void setUserSource(String county, String state, String zip) {
 		// TODO Auto-generated method stub
 

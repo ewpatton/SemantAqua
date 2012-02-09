@@ -37,7 +37,6 @@ public class SessionManager implements HttpHandler, Runnable {
 		return result;
 	}
 	
-	@Override
 	public void handle(HttpExchange arg0) throws IOException {
 		Map<String,String> request = parseRequest(arg0);
 		if(request.containsKey("session")) {

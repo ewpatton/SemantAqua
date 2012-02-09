@@ -90,7 +90,6 @@ public class MysqlCache implements Cache {
 		}
 	}
 
-	@Override
 	public boolean isCached(String uri) throws IOException {
 		try {
 			Statement st = conn.createStatement();
@@ -109,12 +108,10 @@ public class MysqlCache implements Cache {
 		}
 	}
 
-	@Override
 	public boolean isCached(URI uri) throws IOException {
 		return isCached(uri.toASCIIString());
 	}
 
-	@Override
 	public String cachedContents(String uri) throws IOException {
 		try {
 			Statement st = conn.createStatement();
@@ -134,12 +131,10 @@ public class MysqlCache implements Cache {
 		}
 	}
 
-	@Override
 	public String cachedContents(URI uri) throws IOException {
 		return cachedContents(uri.toASCIIString());
 	}
 
-	@Override
 	public boolean isStale(String uri) throws IOException {
 		try {
 			Statement st = conn.createStatement();
@@ -203,12 +198,10 @@ public class MysqlCache implements Cache {
 		}
 	}
 
-	@Override
 	public boolean isStale(URI uri) throws IOException {
 		return isStale(uri.toASCIIString());
 	}
 
-	@Override
 	public void add(String uri, String content, Calendar modified, Calendar expires) throws IOException {
 		java.sql.Date modifiedDate = new java.sql.Date(modified.getTime().getTime());
 		java.sql.Date expiresDate = new java.sql.Date(expires.getTime().getTime());
@@ -223,12 +216,10 @@ public class MysqlCache implements Cache {
 		}
 	}
 
-	@Override
 	public void add(URI uri, String content, Calendar modified, Calendar expires) throws IOException {
 		add(uri.toASCIIString(), content, modified, expires);
 	}
 
-	@Override
 	public void update(String uri, String content, Calendar modified,
 			Calendar expires) throws IOException {
 		java.sql.Date modifiedDate = new java.sql.Date(modified.getTime().getTime());
@@ -247,18 +238,15 @@ public class MysqlCache implements Cache {
 		}
 	}
 
-	@Override
 	public void update(URI uri, String content, Calendar modified,
 			Calendar expires) throws IOException {
 		update(uri.toASCIIString(), content, modified, expires);
 	}
 
-	@Override
 	public void registerStalenessTest(String uri, CacheStalenessCheck test) {
 		staleness.put(uri, test);
 	}
 
-	@Override
 	public void registerStalenessTest(URI uri, CacheStalenessCheck test) {
 		registerStalenessTest(uri.toASCIIString(), test);
 	}

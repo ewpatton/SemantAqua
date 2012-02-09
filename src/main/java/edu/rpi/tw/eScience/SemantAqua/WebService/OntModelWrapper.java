@@ -94,128 +94,103 @@ public class OntModelWrapper implements OntModel {
 		this.m = model;
 	}
 	
-	@Override
 	public Model getDeductionsModel() {
 		return m.getDeductionsModel();
 	}
 
-	@Override
 	public Iterator<Derivation> getDerivation(Statement arg0) {
 		return m.getDerivation(arg0);
 	}
 
-	@Override
 	public Model getRawModel() {
 		return m.getRawModel();
 	}
 
-	@Override
 	public Reasoner getReasoner() {
 		return m.getReasoner();
 	}
 
-	@Override
 	public StmtIterator listStatements(Resource arg0, Property arg1,
 			RDFNode arg2, Model arg3) {
 		return m.listStatements();
 	}
 
-	@Override
 	public void prepare() {
 		m.prepare();
 	}
 
-	@Override
 	public void rebind() {
 		m.rebind();
 	}
 
-	@Override
 	public void reset() {
 		m.reset();
 	}
 
-	@Override
 	public void setDerivationLogging(boolean arg0) {
 		m.setDerivationLogging(arg0);
 	}
 
-	@Override
 	public ValidityReport validate() {
 		return m.validate();
 	}
 
-	@Override
 	public Model abort() {
 		return m.abort();
 	}
 
-	@Override
 	public Model add(Statement arg0) {
 		return m.add(arg0);
 	}
 
-	@Override
 	public Model add(Statement[] arg0) {
 		return m.add(arg0);
 	}
 
-	@Override
 	public Model add(List<Statement> arg0) {
 		return m.add(arg0);
 	}
 
-	@Override
 	public Model add(StmtIterator arg0) {
 		return m.add(arg0);
 	}
 
-	@Override
 	public Model add(Model arg0) {
 		return m.add(arg0);
 	}
 
-	@Override
 	public Model add(Model arg0, boolean arg1) {
 		return m.add(arg0);
 	}
 
-	@Override
 	public Model begin() {
 		return m.begin();
 	}
 
-	@Override
 	public void close() {
 		m.close();
 	}
 
-	@Override
 	public Model commit() {
 		return m.commit();
 	}
 
-	@Override
 	public boolean contains(Statement arg0) {
 		return m.contains(arg0);
 	}
 
-	@Override
 	public boolean contains(Resource arg0, Property arg1) {
 		return m.contains(arg0, arg1);
 	}
 
-	@Override
 	public boolean contains(Resource arg0, Property arg1, RDFNode arg2) {
 		return m.contains(arg0, arg1, arg2);
 	}
 
-	@Override
 	public boolean containsAll(StmtIterator arg0) {
 		return m.containsAll(arg0);
 	}
 
-	@Override
 	public boolean containsAll(Model arg0) {
 		return m.containsAll(arg0);
 	}

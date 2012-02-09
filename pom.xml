@@ -52,7 +52,7 @@
       <plugin>
 	<groupId>org.apache.maven.plugins</groupId>
 	<artifactId>maven-dependency-plugin</artifactId>
-	<version>2.4</version>
+	<version>2.4</version><!--$NO-MVN-MAN-VER$-->
 	<executions>
 	  <execution>
 	    <id>build-classpath</id>
@@ -80,11 +80,76 @@
 	  <archive>
 	    <manifest>
 	      <addClasspath>true</addClasspath>
-	      <mainClass>edu.rpi.tw.eScience.SemantAqua.WebService</mainClass>
+	      <mainClass>edu.rpi.tw.eScience.SemantAqua.WebService.WaterAgent</mainClass>
 	    </manifest>
 	  </archive>
 	</configuration>
       </plugin>
+      <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <version>2.3.2</version>
+    <configuration>
+        <source>1.6</source>
+        <target>1.6</target>
+    </configuration>
+	</plugin>
+      <plugin>
+      	<groupId>org.apache.maven.plugins</groupId>
+      	<artifactId>maven-assembly-plugin</artifactId>
+      	<version>2.3</version><!--$NO-MVN-MAN-VER$-->
+      	<configuration>
+      	  <descriptorRefs>
+      	    <descriptorRef>jar-with-dependencies</descriptorRef>
+      	  </descriptorRefs>
+      	  <archive>
+      	    <manifest>
+      	      <mainClass>edu.rpi.tw.eScience.SemantAqua.WebService.WaterAgent</mainClass>
+      	    </manifest>
+      	  </archive>
+      	</configuration>
+      	<executions>
+      	  <execution>
+      	    <phase>package</phase>
+      	    <goals>
+      	      <goal>single</goal>
+      	    </goals>
+      	  </execution>
+      	</executions>
+      </plugin>
     </plugins>
+    <pluginManagement>
+    	<plugins>
+    		<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+    		<plugin>
+    			<groupId>org.eclipse.m2e</groupId>
+    			<artifactId>lifecycle-mapping</artifactId>
+    			<version>1.0.0</version>
+    			<configuration>
+    				<lifecycleMappingMetadata>
+    					<pluginExecutions>
+    						<pluginExecution>
+    							<pluginExecutionFilter>
+    								<groupId>
+    									org.apache.maven.plugins
+    								</groupId>
+    								<artifactId>
+    									maven-dependency-plugin
+    								</artifactId>
+    								<versionRange>[2.4,)</versionRange>
+    								<goals>
+    									<goal>build-classpath</goal>
+    								</goals>
+    							</pluginExecutionFilter>
+    							<action>
+    								<ignore></ignore>
+    							</action>
+    						</pluginExecution>
+    					</pluginExecutions>
+    				</lifecycleMappingMetadata>
+    			</configuration>
+    		</plugin>
+    	</plugins>
+    </pluginManagement>
   </build>
 </project>

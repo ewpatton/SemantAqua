@@ -823,23 +823,19 @@ public class EpaDataAgent implements WaterDataProvider {
 
 	}
 
-	@Override
 	public boolean getData(OntModel owlModel, Model pmlModel) {
 		return getData(zip, owlModel, pmlModel);
 	}
 
-	@Override
 	public boolean getData(OntModel owlModel, Model pmlModel, Date start,
 			Date end) {
 		return false;
 	}
 
-	@Override
 	public String getName() {
 		return "Environmental Protection Agency";
 	}
 
-	@Override
 	public URL getURL() {
 		try {
 			return new URL("http://www.epa-echo.gov/echo/");
@@ -851,7 +847,6 @@ public class EpaDataAgent implements WaterDataProvider {
 
 	String zip;
 	
-	@Override
 	public void setUserSource(String county, String state, String zip) {
 		this.zip = zip;
 	}

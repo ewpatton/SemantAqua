@@ -72,7 +72,6 @@ public interface Cache {
 		Calendar modifiedDate = Calendar.getInstance();
 		Calendar expirationDate = Calendar.getInstance();
 		
-		@Override
 		public String isStale(String uri, Calendar modified) throws IOException {
 			String result = "";
 			try {
@@ -114,12 +113,10 @@ public interface Cache {
 			}
 		}
 
-		@Override
 		public Calendar getModifiedDate() {
 			return modifiedDate;
 		}
 
-		@Override
 		public Calendar getExpirationDate() {
 			return expirationDate;
 		}

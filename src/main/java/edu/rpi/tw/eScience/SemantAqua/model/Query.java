@@ -211,12 +211,10 @@ public abstract class Query {
 			return model;
 		}
 
-		@Override
 		public void setModel(Model m) {
 			model = m;
 		}
 
-		@Override
 		public Model getModel() {
 			return model;
 		}
@@ -317,12 +315,10 @@ public abstract class Query {
 			return model;
 		}
 
-		@Override
 		public void setModel(Model m) {
 			model = m;
 		}
 
-		@Override
 		public Model getModel() {
 			return model;
 		}
