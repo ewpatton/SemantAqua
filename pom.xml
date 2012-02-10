@@ -117,6 +117,30 @@
       	  </execution>
       	</executions>
       </plugin>
+      <plugin>
+	<groupId>org.codehaus.mojo</groupId>
+	<artifactId>exec-maven-plugin</artifactId>
+	<version>1.2.1</version>
+	<configuration>
+	  <executable>jsrun</executable>
+	  <arguments>
+	    <argument>-d=jsdoc</argument>
+	    <argument>-p</argument>
+	    <argument>-a</argument>
+	    <argument>src/main/www</argument>
+	    <argument>-t=src/jsdoc</argument>
+	    <argument>-E=jQuery</argument>
+	  </arguments>
+	</configuration>
+	<executions>
+	  <execution>
+	    <phase>process-resources</phase>
+	    <goals>
+	      <goal>exec</goal>
+	    </goals>
+	  </execution>
+	</executions>
+      </plugin>
     </plugins>
     <pluginManagement>
     	<plugins>
