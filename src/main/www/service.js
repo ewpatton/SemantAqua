@@ -52,4 +52,4 @@ var SemantAquaService = new Interface("SemantAquaService",["getSources","getWate
  * @see QueryFactory.Query
  * @author ewpatton
  */
-SemantAquaService.Query = new Interface("SemantAquaService.Query",["getZIPCode","setZIPCode","getSources","setSources","getWaterTypes","setWaterTypes","getCharacteristics","setCharacteristics","getHealthEffects","setHealthEffects","getLimit","setLimit","getOffset","setOffset"],[QueryFactory.Query, Visitee]);
+SemantAquaService.Query = new Interface("SemantAquaService.Query",["getZIPCode","setZIPCode","getSources","setSources","getWaterTypes","setWaterTypes","getCharacteristics","setCharacteristics","getHealthEffects","setHealthEffects","getLimit","setLimit","getOffset","setOffset","getCenter","setCenter"],[QueryFactory.Query, Visitee]);
